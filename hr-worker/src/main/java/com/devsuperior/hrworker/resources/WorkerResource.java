@@ -34,6 +34,20 @@ public class WorkerResource {
 	
 	@GetMapping(value= "/{id}")
 	public ResponseEntity<Worker> findById(@PathVariable Long id) {
+		
+		/*
+		 * Testes realizados com tempo de sleep de 3s
+		 * para continuar o processo de request.
+		 * 
+		 * 
+		try {
+			Thread.sleep(3000L);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		*/
+		
 		logger.info("Port: " + env.getProperty("local.server.port")); //Vai imprimir no server a porta que a aplicação está rodando
 		
 		Worker obj = workerRepository.findById(id).get(); //Retorna um optional, para pegar o objeto worker dentro do optional, adiciona um .get()
